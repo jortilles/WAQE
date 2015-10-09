@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="dummy" type="sql.jndi">
+         <Jndi></Jndi>
+      </Connection>
+      <Connection id="ktr_run_query" type="kettle.TransFromFile">
+         <KtrFile>../endpoints/kettle/runQuery.ktr</KtrFile>
+         <variables datarow-name="param_query_model" variable-name="param_query_model"/>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="dummy" id="dummy" type="sql">
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="ktr_run_query" id="ktr_run_query" type="kettle">
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="param_query_model" name="param_query_model" type="String"/>
+      </Parameters>
+      <Query>OUTPUT</Query>
+   </DataAccess>
+</CDADescriptor>

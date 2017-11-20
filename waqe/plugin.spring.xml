@@ -14,5 +14,7 @@
 
     <!--  Content Generator  -->
     <!-- <bean id="cpk" class="pt.webdetails.cpk.CpkContentGenerator" scope="prototype"/> -->
-
+	<bean id="waqe" class="com.jortilles.waqe.WaqeContentGenerator" scope="prototype"/>
+	<bean id="file" class="com.jortilles.waqe.api.FileApi"/>
 </beans>
+

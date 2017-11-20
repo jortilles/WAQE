@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin title="waqe" loader="DEFAULT">
-<overlays>
+	<overlays>
 		<overlay id="startup.waqe" resourcebundle="content/waqe/resources/lang/messages">
 			<menubar id="toolsmenu">
 	        	<menuitem id="waqe" label="${Launcher.waqe}" command="mantleXulHandler.openUrl('${Launcher.waqe}','${Launcher.waqe_TOOLTIP}','plugin/waqe/api/default')"/>
 	      	</menubar>
 	    </overlay>
+			<overlay id="launch" resourcebundle="content/waqe/resources/lang/messages">
+            <button id="launch_waqe" label="${Launcher.waqe}" command="Home.openFile('${Launcher.waqe}', '${Launcher.waqe_TOOLTIP}', 'plugin/waqe/api/default');$('#btnCreateNew').popover('hide');"/>
+        </overlay>
 	</overlays>
 	<lifecycle-listener class="pt.webdetails.cpk.CpkLifecycleListener"/>
 	<static-paths>
@@ -13,15 +16,21 @@
 		<static-path url="/waqe/resources" localFolder="resources"/>
 	</static-paths>
 	<content-types>
-		<content-type>
+		<content-type type="waqe" mime-type="application/json">
+		<!--type type="waqe" mime-type="application/json"-->
 			<title>Waqe</title>
-			<description></description>
-			<company name="" url="" logo="@PLUGIN_COMPANY_LOGO@"></company>
+			<description>Web AdHoc Query Executor</description>
+			<company name="Jortilles" url="http://www.jortilles.com" logo="http://imgur.com/a/7Fiuv"></company>
+			<operations>
+                <operation>
+                    <id>RUN</id>
+                </operation>
+			</operations>
 		</content-type>
 	</content-types>
 	<content-generator
 		id="waqe"
-		title="Waqe"
+		title="waqe"
 		type="waqe"
 		class="pt.webdetails.cpk.CpkContentGenerator"/>
 	<!-- Menu entry -->

@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CDADescriptor>
    <DataSources>
-      <Connection id="ktr_run_query" type="kettle.TransFromFile">
-         <KtrFile>../endpoints/kettle/runQuery.ktr</KtrFile>
-         <variables datarow-name="param_query_model" variable-name="param_query_model"/>
-      </Connection>
       <Connection id="dummy" type="scripting.scripting">
          <Initscript/>
          <Language>beanshell</Language>
       </Connection>
    </DataSources>
-   <DataAccess access="public" connection="ktr_run_query" id="ktr_run_query" type="kettle">
-      <Name>ktr_run_query</Name>
-      <Cache duration="3600" enabled="true"/>
-      <Columns/>
-      <Parameters>
-         <Parameter default="param_query_model" name="param_query_model" type="String"/>
-      </Parameters>
-      <Query><![CDATA[OUTPUT]]></Query>
-   </DataAccess>
    <DataAccess access="public" connection="dummy" id="dummy" type="jsonScriptable">
       <Name>dummy</Name>
       <Cache duration="3600" enabled="true"/>
@@ -26,11 +13,12 @@
       <Parameters/>
       <Query><![CDATA[{
    "resultset":[
-      ["",""]
+  
    ],
 
    "metadata":[
-      {"colIndex":0,"colType":"String","colName":""}
+      {"colIndex":0,"colType":"String","colName":"value"},
+      {"colIndex":1,"colType":"Integer","colName":"name2"}
    ]
 }]]></Query>
    </DataAccess>

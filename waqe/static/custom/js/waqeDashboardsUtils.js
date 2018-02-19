@@ -68,6 +68,9 @@ wdu.select_model_PostFetch = function(data){
 						  var m = [ obj.domain + '|-|' + obj.model , obj.domain + ' - ' + obj.modelName   ];
 						  foo[i] = m ;
 						}
+	//console.log('select_model_PostFetch');
+	//console.log(w.availableModels);
+	//console.log(foo);
 	 // i put the selected the first
 	 for(var j =0; j<foo.length; j++ ){
 		  //console.log(   foo[j].toString()      );
@@ -106,15 +109,17 @@ wdu.select_category_PostFetch = function(data){
 	w.query.domain = foo[0];
 	w.query.model=foo[1];
 	w.getMetadataModelCategories( w.query.domain, w.query.model );
+
 	for (var i = 0; i < w.availableCategories.length; i++){
 					var obj =w.availableCategories[i];
+					//console.log('obj....');
+					//console.log(obj);
 					var m = [ obj.domain + '|-|' + obj.model + '|-|' + obj.id  ,   obj.name   ];
 					foo[i] = m ;
 	}
 	
-	for(var j =0; j<foo.length; j++ ){
-		  //console.log(   foo[j].toString()      );
-		  
+	for(var j =0; j< w.availableCategories.length; j++ ){
+		
 		 if(  foo[j][0].split('|-|')[2].toString() == param_selected_category.toString()  ){
 			 fii[0] = foo[j];
 		 }else{
@@ -122,6 +127,7 @@ wdu.select_category_PostFetch = function(data){
 		 }
 	 }
 	res.resultset = fii.concat(rest);
+	//console.log('select_category_PostFetch Paso ' + rest);
 	return res;
 	
 };

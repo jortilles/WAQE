@@ -91,6 +91,7 @@ w.getMetadataDomains = function(){
 
 
 w.getMetadataModelCategories = function( domain, model ){
+		//console.log( 'asking form getMetadataModelCategories domain: ' + domain + ' Model: ' + model)
         $.ajax({
                 url:   Dashboards.getWebAppPath() +'/content/ws-run/metadataService/loadModel?domainId=' +  domain + '&modelId=' + model ,
                 type:  'get',
@@ -99,7 +100,7 @@ w.getMetadataModelCategories = function( domain, model ){
                     //    console.log('Asking form MD domain Models....domainId=' +  domain + '&modelId=' + model);
                 },
                 success:  function (response) {
-						//console.log(response);
+						console.log(response);
 						$(response).find('categories').each(function(){
 							var cat = {};
 							cat.domain = domain;
@@ -122,7 +123,7 @@ w.getMetadataModelCategories = function( domain, model ){
 							cat.columns = columns;
 							w.availableCategories.push( cat );
 						}); 
-						// console.log( w.availableCategories  );  
+						 //console.log( w.availableCategories  );  
                 }
         });
 };
